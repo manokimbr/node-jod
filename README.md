@@ -96,6 +96,19 @@ This project is a **living lab** for experimenting with modern native Node APIs,
 
 ---
 
+---
+
+## 🧠 JOD Brain — Project Awareness
+
+JOD can now analyze its own codebase using `jod/brain.js`.  
+This command creates an internal memory of your project’s structure, routes, and exported functions — opening the path for self-generated evolution powered by LLMs.
+
+### 🔍 Run it:
+
+```bash
+node jod/brain.js
+
+
 ## 👤 Author
 
 Made with curiosity & caffeine by [@manokimbr](https://github.com/manokimbr)
