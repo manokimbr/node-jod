@@ -1,13 +1,21 @@
-
 # 🧬 node-jod
 
-Exploring the edge of Node.js with **v22 (Jod)**.
+[![Node.js](https://img.shields.io/badge/node-22.x-green?logo=node.js)](https://nodejs.org/)
+[![Deploy on Render](https://img.shields.io/badge/render-live-blue?logo=render)](https://node-jod.onrender.com/api/ping)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](./LICENSE)
+[![Status](https://img.shields.io/badge/status-experimental-orange)](#)
 
-This is a clean, native API starter powered by Node.js 22+:
-- ✅ Native `fetch`, `FormData`, `Blob`, and Web APIs
-- ✅ ESM out of the box (`"type": "module"`)
+> Exploring the edge of Node.js with **v22 (Jod)** — a native, dependency-free API playground.
+
+---
+
+## ✨ Features
+
+- ✅ Native `fetch`, `FormData`, `Blob`, `structuredClone`, and other Web APIs
+- ✅ Modern ESM (`"type": "module"`) setup
 - ✅ Zero dependencies
-- ✅ No transpilers, no frameworks — just Node, sharp and minimal
+- ✅ Pure Node.js HTTP, no frameworks
+- ✅ Runs on [Render](https://render.com/register) for **free** with Node.js v22
 
 ---
 
@@ -21,31 +29,83 @@ npm install
 npm start
 ````
 
-Visit:
-[http://localhost:3001/api/ping](http://localhost:3001/api/ping)
+> Make sure to set your `NODE_ENV` and `PORT` in `.env` or `.env.dev`.
 
-Expected response:
+---
+
+## 📦 Project Structure
+
+```bash
+.
+├── index.js              # Entry point
+├── .env / .env.dev       # Environment configs
+├── server/
+│   ├── routes/           # Route definitions
+│   ├── handlers/         # Request handlers
+│   └── utils/            # Utility functions (e.g., env loader)
+```
+
+---
+
+## 🔌 API Example
+
+### `GET /api/ping`
+
+📍 [https://node-jod.onrender.com/api/ping](https://node-jod.onrender.com/api/ping)
 
 ```json
 {
   "message": "pong from Node Jod 🧬",
-  "version": "v22.x.x"
+  "version": "v22.16.0",
+  "env": "production",
+  "port": "3001"
 }
 ```
 
 ---
 
-## 🛠 Stack (so far)
+## ☁️ Deployment (Free)
+
+Deployed with ❤️ on [Render](https://render.com/register) — a modern cloud platform that supports **Node.js v22** out of the box.
+
+> Say goodbye to Node v18 limitations.
+> Say hello to native edge APIs.
+
+✅ Zero config deploy
+✅ Connects to your GitHub
+✅ Auto-redeploy on push
+
+---
+
+## 🛠️ Stack (Current)
 
 | Layer   | Tech            |
 | ------- | --------------- |
 | Runtime | Node.js v22 Jod |
 | Modules | ESM (`.js`)     |
 | API     | Native HTTP     |
-| Tools   | None            |
+| Tools   | None (yet)      |
 
-> More to come: Neo4j, Web3, LLMs, and 3D bots.
+> Roadmap: Neo4j · Web3 · LLMs · 3D Bots · AI Matchmaking · 🔮
 
 ---
 
-Made by [@manokimbr](https://github.com/manokimbr)
+## 🧠 Motivation
+
+This project is a **living lab** for experimenting with modern native Node APIs, clean architecture, and lightweight infrastructure — all with zero overhead.
+
+---
+
+## 👤 Author
+
+Made with curiosity & caffeine by [@manokimbr](https://github.com/manokimbr)
+
+[![GitHub followers](https://img.shields.io/github/followers/manokimbr?label=Follow\&style=social)](https://github.com/manokimbr)
+[![Twitter](https://img.shields.io/badge/X-@manokimbr-black?logo=x)](https://twitter.com/manokimbr)
+
+---
+
+## 📄 License
+
+This project is open-source under the [MIT License](./LICENSE).
+
