@@ -107,5 +107,6 @@ Made with curiosity & caffeine by [@manokimbr](https://github.com/manokimbr)
 
 ## 📄 License
 
-This project is open-source under the [MIT License](./LICENSE).
+This project is open-source under the [MIT License](./.LICENSE)
+
 
