@@ -1,23 +1,15 @@
 import { createServer } from 'node:http'
+import { router } from './server/routes/router.js'
+import { loadEnv } from './server/utils/env.js'
+
+loadEnv()
 
 const PORT = process.env.PORT || 3001
 
 const server = createServer(async (req, res) => {
-  if (req.url === '/') {
-    res.writeHead(200, { 'Content-Type': 'text/plain' })
-    res.end('Node Jod is alive 🧬')
-  } else if (req.url === '/api/ping') {
-    res.writeHead(200, { 'Content-Type': 'application/json' })
-    res.end(JSON.stringify({
-      message: 'pong from Node Jod 🧬',
-      version: process.version
-    }))
-  } else {
-    res.writeHead(404, { 'Content-Type': 'text/plain' })
-    res.end('Not found')
-  }
+  router(req, res)
 })
 
 server.listen(PORT, () => {
-  console.log(`🔥 node-jod running on port ${PORT}`)
+  console.log(`🔥 node-jod running on port ${PORT} (${process.env.NODE_ENV})`)
 })

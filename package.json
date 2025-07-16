@@ -6,15 +6,26 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev": "NODE_ENV=development node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/manokimbr/node-jod.git"
   },
-  "keywords": [],
+  "keywords": [
+    "node",
+    "nodejs",
+    "native-api",
+    "node-22",
+    "http-server",
+    "jod",
+    "server",
+    "api",
+    "minimal"
+  ],
   "author": "Kim Souza",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/manokimbr/node-jod/issues"
   },
