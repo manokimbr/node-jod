@@ -90,23 +90,22 @@ Deployed with ❤️ on [Render](https://render.com/register) — a modern cloud
 
 ---
 
-## 🧠 Motivation
+## 🧠 Self-awareness mode:
 
-This project is a **living lab** for experimenting with modern native Node APIs, clean architecture, and lightweight infrastructure — all with zero overhead.
+Scans its own codebase with `node jod/brain.js` and builds a project memory map.
+
+This command creates:
+
+- `jod/memory/structure.json` → list of files, exported functions, and detected routes
+- `jod/memory/project.json` → folder layout and package metadata
+
+This is the first step toward turning JOD into a living system — capable of analyzing itself, planning features, and collaborating with AI to evolve.
+
+
+
 
 ---
 
----
-
-## 🧠 JOD Brain — Project Awareness
-
-JOD can now analyze its own codebase using `jod/brain.js`.  
-This command creates an internal memory of your project’s structure, routes, and exported functions — opening the path for self-generated evolution powered by LLMs.
-
-### 🔍 Run it:
-
-```bash
-node jod/brain.js
 
 
 ## 👤 Author
