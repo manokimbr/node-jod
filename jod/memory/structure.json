@@ -43,12 +43,10 @@
     "dir": "server/utils",
     "file": "env.js",
     "exports": [
-      "export function loadEnv() {"
+      "export async function loadEnv() {"
     ],
     "routes": [],
-    "warnings": [
-      "⚠️ Uses fs sync write"
-    ]
+    "warnings": []
   },
   {
     "fullPath": "/home/nanashi/Desktop/APIS/node-jod/server/utils/neo4j.js",
@@ -60,9 +58,7 @@
       "export function getNeo4jSession() {"
     ],
     "routes": [],
-    "warnings": [
-      "⚠️ Possible hardcoded secret"
-    ]
+    "warnings": []
   },
   {
     "fullPath": "/home/nanashi/Desktop/APIS/node-jod/server/utils/vulnerabilityPatterns.js",
@@ -73,11 +69,7 @@
       "export const vulnerabilityPatterns = ["
     ],
     "routes": [],
-    "warnings": [
-      "⚠️ Uses eval()",
-      "⚠️ Uses child_process.exec",
-      "⚠️ Possible hardcoded secret"
-    ]
+    "warnings": []
   },
   {
     "fullPath": "/home/nanashi/Desktop/APIS/node-jod/index.js",

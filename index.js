@@ -2,7 +2,8 @@ import { createServer } from 'node:http'
 import { router } from './server/routes/router.js'
 import { loadEnv } from './server/utils/env.js'
 
-loadEnv()
+// ✅ Aguarda o carregamento assíncrono do .env
+await loadEnv()
 
 const PORT = process.env.PORT || 3001
 

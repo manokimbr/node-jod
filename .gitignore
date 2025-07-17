@@ -1,2 +1,10 @@
 .env
+.env.dev
 node_modules/
+
+# 🔒 Ignore MOD folders
+# jod/llm/mod/
+jod/llm/mod_/
+
+
+

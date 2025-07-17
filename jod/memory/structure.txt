@@ -13,13 +13,4 @@
 
 🛡️  Security Warnings Summary:
 
-📄 env.js
-   - ⚠️ Uses fs sync write
-
-📄 neo4j.js
-   - ⚠️ Possible hardcoded secret
-
-📄 vulnerabilityPatterns.js
-   - ⚠️ Uses eval()
-   - ⚠️ Uses child_process.exec
-   - ⚠️ Possible hardcoded secret
+✅ No warnings found. You’re clear.

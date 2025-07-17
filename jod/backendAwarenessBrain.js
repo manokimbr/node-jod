@@ -43,9 +43,12 @@ function extractFileInfo(fileMeta) {
 
   const warnings = []
 
-  for (const { pattern, message } of vulnerabilityPatterns) {
-    if (pattern.test(content)) {
-      warnings.push(message)
+  // Skip self-flagging for the vulnerabilityPatterns definition file
+  if (!fileMeta.relativePath.endsWith('vulnerabilityPatterns.js')) {
+    for (const { pattern, message } of vulnerabilityPatterns) {
+      if (pattern.test(content)) {
+        warnings.push(message)
+      }
     }
   }
 
