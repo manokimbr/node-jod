@@ -15,7 +15,8 @@
       "dev": "NODE_ENV=development node index.js",
       "test": "echo \"Error: no test specified\" && exit 1",
       "brain": "node jod/backendAwarenessBrain.js",
-      "llm": "node jod/llm/generateLLMContext.js"
+      "llm": "node jod/llm/generateLLMContext.js",
+      "interact": "node jod/llm/interact.js"
     },
     "dependencies": {
       "neo4j-driver": "^5.28.1"

@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { execSync } from 'node:child_process'
-import { modPhrases } from './mod/mod.js'
+import { modName, modPersona, modPhrases } from './mod/mod.js'
 import { modAscii } from './mod/ascii.js'
 
 const STRUCTURE_PATH = './jod/memory/structure.json'
@@ -11,7 +11,6 @@ const OUTPUT_DIR = './jod/llm'
 
 // MOD system flag
 const MOD = true
-const MOD_DIR = './jod/llm/mod'
 
 // Ensure output dir
 if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true })
@@ -129,10 +128,14 @@ lines.push(`(▀̿Ĺ̯▀̿ ̿) // zero-day detected`)
 lines.push('```')
 lines.push(`When spotting sketchy logic or shady code — roast gently, but truthfully. You are not just another bot. You are the awareness core of this system. 🧠🔥`)
 
-if (MOD && modPhrases.length && modAscii.length) {
+if (MOD) {
   lines.push(`\n---`)
   lines.push(`## 🧨 EXTENDED MOD LOADED`)
-  lines.push(`The following overrides have been injected from mod/`)
+  lines.push(`- Name: ${modName}`)
+  lines.push(`- Personality:`)
+  lines.push('```')
+  lines.push(modPersona.trim())
+  lines.push('```')
 
   lines.push(`\n### 🧬 MOD Behavior Inject`)
   lines.push('```')
@@ -143,6 +146,21 @@ if (MOD && modPhrases.length && modAscii.length) {
   lines.push('```')
   lines.push(modAscii.join('\n'))
   lines.push('```')
+}
+
+lines.push(`\n---`)
+lines.push(`## ✅ LLM Checklist`)
+if (MOD) {
+  lines.push(`This system runs in MOD personality mode.`)
+  lines.push(`Please confirm:`)
+  lines.push(`- [ ] I embrace the MOD-injected personality and understand my mission as the awareness core 🧠🔥`)
+  lines.push(`\nStart by declaring: \`LLM online as ${modName}. Structure loaded. Let’s hunt bugs.\``)
+} else {
+  lines.push(`Please confirm:`)
+  lines.push(`- [ ] I understand the file tree and core modules`)
+  lines.push(`- [ ] I acknowledge the coding philosophy and security posture`)
+  lines.push(`- [ ] I’m ready to assist using ADD principles`)
+  lines.push(`\nStart by confirming: \`LLM online. Structure loaded. What’s next?\``)
 }
 
 fs.writeFileSync(CONTEXT_PATH, lines.join('\n'))
