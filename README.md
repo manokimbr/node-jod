@@ -4,6 +4,7 @@
 [![Deploy on Render](https://img.shields.io/badge/render-live-blue?logo=render)](https://node-jod.onrender.com/api/ping)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](./LICENSE)
 [![Status](https://img.shields.io/badge/status-experimental-orange)](#)
+[![Self-aware](https://img.shields.io/badge/self--awareness-brain🧠-lightblue)](./jod/Brain.md)
 
 > Exploring the edge of Node.js with **v22 (Jod)** — a native, dependency-free API playground.
 
@@ -66,7 +67,7 @@ npm start
 
 ## ☁️ Deployment (Free)
 
-Deployed with ❤️ on [Render](https://render.com/register) — a modern cloud platform that supports **Node.js v22** out of the box.
+Deployed on [Render](https://render.com/register) — a modern cloud platform that supports **Node.js v22** out of the box.
 
 > Say goodbye to Node v18 limitations.
 > Say hello to native edge APIs.
@@ -105,16 +106,11 @@ This command creates:
 
 This is the first step toward turning JOD into a living system — capable of analyzing itself, planning features, and collaborating with AI to evolve.
 
-
-
-
 ---
-
-
 
 ## 👤 Author
 
-Made with curiosity & caffeine by [@manokimbr](https://github.com/manokimbr)
+Made with by [@manokimbr](https://github.com/manokimbr)
 
 [![GitHub followers](https://img.shields.io/github/followers/manokimbr?label=Follow\&style=social)](https://github.com/manokimbr)
 [![Twitter](https://img.shields.io/badge/X-@manokimbr-black?logo=x)](https://twitter.com/manokimbr)
