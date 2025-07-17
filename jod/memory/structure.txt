@@ -7,13 +7,19 @@
 │   │   └── router.js
 │   └── utils
 │       ├── env.js
-│       └── neo4j.js
+│       ├── neo4j.js
+│       └── vulnerabilityPatterns.js
 └── index.js
 
 🛡️  Security Warnings Summary:
 
-📄 server/utils/env.js
+📄 env.js
    - ⚠️ Uses fs sync write
 
-📄 server/utils/neo4j.js
+📄 neo4j.js
+   - ⚠️ Possible hardcoded secret
+
+📄 vulnerabilityPatterns.js
+   - ⚠️ Uses eval()
+   - ⚠️ Uses child_process.exec
    - ⚠️ Possible hardcoded secret

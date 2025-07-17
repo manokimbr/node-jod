@@ -9,12 +9,13 @@
     "name": "jod",
     "version": "1.0.0",
     "description": "Exploring native Node.js 22 APIs",
-    "author": "Kim Souza",
+    "author": "manokimbr",
     "scripts": {
       "start": "node index.js",
       "dev": "NODE_ENV=development node index.js",
       "test": "echo \"Error: no test specified\" && exit 1",
-      "brain": "node jod/backendAwarenessBrain.js"
+      "brain": "node jod/backendAwarenessBrain.js",
+      "llm": "node jod/llm/generateLLMContext.js"
     },
     "dependencies": {
       "neo4j-driver": "^5.28.1"

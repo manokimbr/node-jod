@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { vulnerabilityPatterns } from '../server/utils/vulnerabilityPatterns.js'
 
 const ROOT_DIR = path.resolve('.')
 const SERVER_DIR = path.join(ROOT_DIR, 'server')
@@ -10,7 +11,6 @@ const STRUCTURE_TXT = path.join(OUTPUT_DIR, 'structure.txt')
 
 const IGNORED_DIRS = ['node_modules', '.git', 'jod']
 
-// Recursively scan JS files
 function scanFiles(dir, base = '.') {
   const result = []
   const items = fs.readdirSync(dir)
@@ -35,40 +35,28 @@ function scanFiles(dir, base = '.') {
   return result
 }
 
-// Extract exports, routes, and detect risky patterns
-function extractFileInfo(filePath) {
-  const content = fs.readFileSync(filePath, 'utf-8')
+function extractFileInfo(fileMeta) {
+  const content = fs.readFileSync(fileMeta.fullPath, 'utf-8')
   const lines = content.split('\n')
   const exports = lines.filter(line => line.includes('export')).map(line => line.trim())
   const routes = lines.filter(line => line.includes('/api/')).map(line => line.trim())
 
   const warnings = []
 
-  const securityPatterns = [
-    { pattern: /eval\(/, message: '⚠️ Uses eval()' },
-    { pattern: /child_process\.exec/, message: '⚠️ Uses child_process.exec' },
-    { pattern: /require\([\'"]fs[\'"]\)/, message: '⚠️ Requires fs module' },
-    { pattern: /fs\.\w+Sync\(/, message: '⚠️ Uses fs sync write' },
-    { pattern: /Buffer\.from\(.*["']base64["']\)/, message: '⚠️ Decoding base64 data' },
-    { pattern: /http(s)?:\/\//, message: '⚠️ Hardcoded URL' },
-    { pattern: /token|secret|password/i, message: '⚠️ Possible hardcoded secret' }
-  ]
-
-  for (const { pattern, message } of securityPatterns) {
+  for (const { pattern, message } of vulnerabilityPatterns) {
     if (pattern.test(content)) {
       warnings.push(message)
     }
   }
 
   return {
-    file: path.relative('.', filePath),
+    ...fileMeta,
     exports,
     routes,
     warnings
   }
 }
 
-// Read package.json metadata
 function readPackageMetadata() {
   const pkgPath = path.resolve('package.json')
   if (!fs.existsSync(pkgPath)) return {}
@@ -85,7 +73,6 @@ function readPackageMetadata() {
   }
 }
 
-// Build ASCII tree from file paths
 function generateAsciiTree(files) {
   const tree = {}
 
@@ -118,7 +105,6 @@ function generateAsciiTree(files) {
   return `📁 ./\n` + render(tree)
 }
 
-// Save file with automatic output dir creation
 function saveToFile(filename, content) {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true })
@@ -126,7 +112,6 @@ function saveToFile(filename, content) {
   fs.writeFileSync(filename, content)
 }
 
-// Main brain routine
 function runBackendBrain() {
   console.log('\n🧠 Backend Awareness Brain Activated')
 
@@ -135,23 +120,25 @@ function runBackendBrain() {
     ...scanFiles(ROOT_DIR, '.').filter(f => !f.relativePath.startsWith('server' + path.sep))
   ]
 
-  const extractedInfo = scannedFiles.map(f => extractFileInfo(f.fullPath))
+  const extractedInfo = scannedFiles
+    .map(f => extractFileInfo(f))
+    .filter(Boolean)
+
   const uniqueFolders = [...new Set(scannedFiles.map(f => f.dir))]
   const packageData = readPackageMetadata()
-  const asciiTree = generateAsciiTree(scannedFiles)
+  const asciiTree = generateAsciiTree(extractedInfo)
 
-  console.log(`📄 Files Scanned: ${scannedFiles.length}`)
+  console.log(`📄 Files Scanned: ${extractedInfo.length}`)
   console.log(`📁 Folders: ${uniqueFolders.length}`)
   console.log(`📦 Package: ${packageData.name}@${packageData.version}`)
 
-  extractedInfo.forEach(file => {
+  for (const file of extractedInfo) {
     console.log(`\n📄 ${file.file}`)
     if (file.exports.length) console.log('   ├─ Exports:', file.exports)
     if (file.routes.length) console.log('   ├─ Routes:', file.routes)
     if (file.warnings.length) console.log('   🔥 Warnings:', file.warnings)
-  })
+  }
 
-  // Build security warnings report for .txt
   let warningReport = '\n\n🛡️  Security Warnings Summary:\n'
   let hasWarnings = false
 

@@ -1,6 +1,9 @@
 [
   {
-    "file": "server/handlers/pingHandler.js",
+    "fullPath": "/home/nanashi/Desktop/APIS/node-jod/server/handlers/pingHandler.js",
+    "relativePath": "server/handlers/pingHandler.js",
+    "dir": "server/handlers",
+    "file": "pingHandler.js",
     "exports": [
       "export function handlePing(req, res) {"
     ],
@@ -8,7 +11,10 @@
     "warnings": []
   },
   {
-    "file": "server/routes/devGraphTest.js",
+    "fullPath": "/home/nanashi/Desktop/APIS/node-jod/server/routes/devGraphTest.js",
+    "relativePath": "server/routes/devGraphTest.js",
+    "dir": "server/routes",
+    "file": "devGraphTest.js",
     "exports": [
       "export async function devGraphTest(req, res) {"
     ],
@@ -18,7 +24,10 @@
     "warnings": []
   },
   {
-    "file": "server/routes/router.js",
+    "fullPath": "/home/nanashi/Desktop/APIS/node-jod/server/routes/router.js",
+    "relativePath": "server/routes/router.js",
+    "dir": "server/routes",
+    "file": "router.js",
     "exports": [
       "export function router(req, res) {"
     ],
@@ -29,7 +38,10 @@
     "warnings": []
   },
   {
-    "file": "server/utils/env.js",
+    "fullPath": "/home/nanashi/Desktop/APIS/node-jod/server/utils/env.js",
+    "relativePath": "server/utils/env.js",
+    "dir": "server/utils",
+    "file": "env.js",
     "exports": [
       "export function loadEnv() {"
     ],
@@ -39,7 +51,10 @@
     ]
   },
   {
-    "file": "server/utils/neo4j.js",
+    "fullPath": "/home/nanashi/Desktop/APIS/node-jod/server/utils/neo4j.js",
+    "relativePath": "server/utils/neo4j.js",
+    "dir": "server/utils",
+    "file": "neo4j.js",
     "exports": [
       "export function getNeo4jDriver() {",
       "export function getNeo4jSession() {"
@@ -50,6 +65,24 @@
     ]
   },
   {
+    "fullPath": "/home/nanashi/Desktop/APIS/node-jod/server/utils/vulnerabilityPatterns.js",
+    "relativePath": "server/utils/vulnerabilityPatterns.js",
+    "dir": "server/utils",
+    "file": "vulnerabilityPatterns.js",
+    "exports": [
+      "export const vulnerabilityPatterns = ["
+    ],
+    "routes": [],
+    "warnings": [
+      "⚠️ Uses eval()",
+      "⚠️ Uses child_process.exec",
+      "⚠️ Possible hardcoded secret"
+    ]
+  },
+  {
+    "fullPath": "/home/nanashi/Desktop/APIS/node-jod/index.js",
+    "relativePath": "index.js",
+    "dir": "",
     "file": "index.js",
     "exports": [],
     "routes": [],

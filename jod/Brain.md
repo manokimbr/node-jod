@@ -121,5 +121,3 @@ Summarizes folder layout and package metadata:
 ---
 
 🧬 *node-jod team*
-
-```
