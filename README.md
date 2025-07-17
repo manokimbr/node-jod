@@ -5,18 +5,21 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](./LICENSE)
 [![Status](https://img.shields.io/badge/status-experimental-orange)](#)
 [![Self-aware](https://img.shields.io/badge/self--awareness-brain🧠-lightblue)](./jod/Brain.md)
+[![ADD Manifesto](https://img.shields.io/badge/ADD-manifesto-purple?logo=neo4j)](./jod/ADD/ADD.md)
+[![Neo4j Guide](https://img.shields.io/badge/graph-connected-9cf?logo=neo4j)](./jod/ADD/Neo4j.md)
 
-> Exploring the edge of Node.js with **v22 (Jod)** — a native, dependency-free API playground.
+> Exploring the edge of Node.js with **v22 (Jod)** — a minimal, awareness-driven, vulnerability-resistant API playground.
 
 ---
 
 ## ✨ Features
 
-- ✅ Native `fetch`, `FormData`, `Blob`, `structuredClone`, and other Web APIs
-- ✅ Modern ESM (`"type": "module"`) setup
-- ✅ Zero dependencies
-- ✅ Pure Node.js HTTP, no frameworks
-- ✅ Runs on [Render](https://render.com/register) for **free** with Node.js v22
+* ✅ Native `fetch`, `FormData`, `Blob`, `structuredClone`, and other Web APIs
+* ✅ Modern ESM (`"type": "module"`) setup
+* ✅ Zero core dependencies (with optional graph integrations)
+* ✅ Pure Node.js HTTP, no frameworks
+* ✅ Awareness-Driven Development (ADD)™ ready
+* ✅ Runs on [Render](https://render.com/register) for **free** with Node.js v22
 
 ---
 
@@ -28,7 +31,7 @@ git clone https://github.com/manokimbr/node-jod.git
 cd node-jod
 npm install
 npm start
-````
+```
 
 > Make sure to set your `NODE_ENV` and `PORT` in `.env` or `.env.dev`.
 
@@ -44,6 +47,9 @@ npm start
 │   ├── routes/           # Route definitions
 │   ├── handlers/         # Request handlers
 │   └── utils/            # Utility functions (e.g., env loader)
+├── jod/
+│   ├── memory/           # Codebase awareness outputs
+│   ├── ADD/              # Awareness-Driven Development docs
 ```
 
 ---
@@ -80,45 +86,57 @@ Deployed on [Render](https://render.com/register) — a modern cloud platform th
 
 ## 🛠️ Stack (Current)
 
-| Layer   | Tech            |
-| ------- | --------------- |
-| Runtime | Node.js v22 Jod |
-| Modules | ESM (`.js`)     |
-| API     | Native HTTP     |
-| Tools   | None (yet)      |
+| Layer   | Tech             |
+| ------- | ---------------- |
+| Runtime | Node.js v22 Jod  |
+| Modules | ESM (`.js`)      |
+| API     | Native HTTP      |
+| Graph   | Neo4j (optional) |
 
-> Roadmap: Neo4j · Web3 · LLMs · 3D Bots · AI Matchmaking · 🔮
+> Roadmap: Web3 · LLMs · 3D Bots · AI Matchmaking · 🔮
 
 ---
 
-## 🧠 Self-awareness mode:
+## 🧠 Self-awareness Mode
 
-Scans its own codebase with 
+JOD can scan its own codebase with:
+
 ```bash
 npm run brain
-``` 
-and builds a project memory map.
+```
 
-This command creates:
+This builds a lightweight memory of the backend:
 
-- `jod/memory/structure.json` → list of files, exported functions, and detected routes
-- `jod/memory/project.json` → folder layout and package metadata
+* `jod/memory/structure.json` → list of files, exported functions, and detected routes
+* `jod/memory/project.json` → folder layout and package metadata
+* `jod/memory/structure.txt` → ASCII folder tree with warnings (⚠️)
 
-This is the first step toward turning JOD into a living system — capable of analyzing itself, planning features, and collaborating with AI to evolve.
+> The foundation of a living backend that understands itself and can evolve.
 
 ---
 
-## 👤 Author
+## 📚 Awareness-Driven Development (ADD) 🐺 🤖
 
-Made with by [@manokimbr](https://github.com/manokimbr)
+ADD is a programming paradigm that turns codebases into **self-aware agents**.
+Learn more about it in [`jod/ADD/ADD.md`](./jod/ADD/ADD.md)
 
-[![GitHub followers](https://img.shields.io/github/followers/manokimbr?label=Follow\&style=social)](https://github.com/manokimbr)
-[![Twitter](https://img.shields.io/badge/X-@manokimbr-black?logo=x)](https://twitter.com/manokimbr)
+---
+
+## 🔗 Neo4j Integration
+
+JOD optionally connects to [Neo4j](https://neo4j.com/) to store and visualize awareness data.
+Ideal for inspecting architecture or enabling LLM-powered analysis.
+
+Guide available here → [`jod/ADD/Neo4j.md`](./jod/ADD/Neo4j.md)
+
+---
+
+## 🐺 Author
+
+Made by [@manokimbr](https://github.com/manokimbr)
 
 ---
 
 ## 📄 License
 
-This project is open-source under the [MIT License](./.LICENSE)
-
-
+This project is open-source under the [MIT License](./LICENSE)

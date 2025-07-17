@@ -16,6 +16,9 @@
       "test": "echo \"Error: no test specified\" && exit 1",
       "brain": "node jod/backendAwarenessBrain.js"
     },
+    "dependencies": {
+      "neo4j-driver": "^5.28.1"
+    },
     "type": "module"
   }
 }

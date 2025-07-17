@@ -1,4 +1,3 @@
-// jod/backendAwarenessBrain.js
 import fs from 'node:fs'
 import path from 'node:path'
 
@@ -36,21 +35,40 @@ function scanFiles(dir, base = '.') {
   return result
 }
 
-// Extract exports and API routes from JS file
+// Extract exports, routes, and detect risky patterns
 function extractFileInfo(filePath) {
   const content = fs.readFileSync(filePath, 'utf-8')
   const lines = content.split('\n')
   const exports = lines.filter(line => line.includes('export')).map(line => line.trim())
   const routes = lines.filter(line => line.includes('/api/')).map(line => line.trim())
 
+  const warnings = []
+
+  const securityPatterns = [
+    { pattern: /eval\(/, message: '⚠️ Uses eval()' },
+    { pattern: /child_process\.exec/, message: '⚠️ Uses child_process.exec' },
+    { pattern: /require\([\'"]fs[\'"]\)/, message: '⚠️ Requires fs module' },
+    { pattern: /fs\.\w+Sync\(/, message: '⚠️ Uses fs sync write' },
+    { pattern: /Buffer\.from\(.*["']base64["']\)/, message: '⚠️ Decoding base64 data' },
+    { pattern: /http(s)?:\/\//, message: '⚠️ Hardcoded URL' },
+    { pattern: /token|secret|password/i, message: '⚠️ Possible hardcoded secret' }
+  ]
+
+  for (const { pattern, message } of securityPatterns) {
+    if (pattern.test(content)) {
+      warnings.push(message)
+    }
+  }
+
   return {
     file: path.relative('.', filePath),
     exports,
-    routes
+    routes,
+    warnings
   }
 }
 
-// Read metadata from package.json
+// Read package.json metadata
 function readPackageMetadata() {
   const pkgPath = path.resolve('package.json')
   if (!fs.existsSync(pkgPath)) return {}
@@ -67,7 +85,7 @@ function readPackageMetadata() {
   }
 }
 
-// Generate folder tree as ASCII art
+// Build ASCII tree from file paths
 function generateAsciiTree(files) {
   const tree = {}
 
@@ -100,7 +118,7 @@ function generateAsciiTree(files) {
   return `📁 ./\n` + render(tree)
 }
 
-// Save content to file
+// Save file with automatic output dir creation
 function saveToFile(filename, content) {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true })
@@ -108,7 +126,7 @@ function saveToFile(filename, content) {
   fs.writeFileSync(filename, content)
 }
 
-// Main Execution
+// Main brain routine
 function runBackendBrain() {
   console.log('\n🧠 Backend Awareness Brain Activated')
 
@@ -130,18 +148,39 @@ function runBackendBrain() {
     console.log(`\n📄 ${file.file}`)
     if (file.exports.length) console.log('   ├─ Exports:', file.exports)
     if (file.routes.length) console.log('   ├─ Routes:', file.routes)
+    if (file.warnings.length) console.log('   🔥 Warnings:', file.warnings)
   })
+
+  // Build security warnings report for .txt
+  let warningReport = '\n\n🛡️  Security Warnings Summary:\n'
+  let hasWarnings = false
+
+  for (const file of extractedInfo) {
+    if (file.warnings && file.warnings.length > 0) {
+      hasWarnings = true
+      warningReport += `\n📄 ${file.file}\n`
+      for (const warning of file.warnings) {
+        warningReport += `   - ${warning}\n`
+      }
+    }
+  }
+
+  if (!hasWarnings) {
+    warningReport += '\n✅ No warnings found. You’re clear.'
+  }
+
+  const txtWithWarnings = asciiTree + warningReport
 
   saveToFile(STRUCTURE_JSON, JSON.stringify(extractedInfo, null, 2))
   saveToFile(PROJECT_JSON, JSON.stringify({ folders: uniqueFolders, package: packageData }, null, 2))
-  saveToFile(STRUCTURE_TXT, asciiTree)
+  saveToFile(STRUCTURE_TXT, txtWithWarnings)
 
   console.log('\n💾 Output saved:')
   console.log(`🧬 structure.json → ${STRUCTURE_JSON}`)
   console.log(`📦 project.json   → ${PROJECT_JSON}`)
   console.log(`🌳 structure.txt  → ${STRUCTURE_TXT}`)
 
-  console.log('\n' + asciiTree + '\n')
+  console.log('\n' + txtWithWarnings + '\n')
 }
 
 runBackendBrain()

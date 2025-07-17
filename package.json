@@ -30,5 +30,10 @@
   "bugs": {
     "url": "https://github.com/manokimbr/node-jod/issues"
   },
-  "homepage": "https://github.com/manokimbr/node-jod#readme"
+  "homepage": "https://github.com/manokimbr/node-jod#readme",
+  "dependencies": {
+    "neo4j-driver": "^5.28.1"
+  },
+  "awarenessDriven": true,
+  "philosophy": "If the system doesn’t know what it is, it shouldn’t be deployed."
 }

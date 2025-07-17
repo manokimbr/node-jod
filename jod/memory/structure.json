@@ -4,7 +4,18 @@
     "exports": [
       "export function handlePing(req, res) {"
     ],
-    "routes": []
+    "routes": [],
+    "warnings": []
+  },
+  {
+    "file": "server/routes/devGraphTest.js",
+    "exports": [
+      "export async function devGraphTest(req, res) {"
+    ],
+    "routes": [
+      "if (req.url === '/api/dev/graph-ping' && req.method === 'GET') {"
+    ],
+    "warnings": []
   },
   {
     "file": "server/routes/router.js",
@@ -12,19 +23,36 @@
       "export function router(req, res) {"
     ],
     "routes": [
-      "else if (url === '/api/ping') {"
-    ]
+      "else if (url === '/api/ping') {",
+      "else if (url === '/api/dev/graph-ping' && method === 'GET') {"
+    ],
+    "warnings": []
   },
   {
     "file": "server/utils/env.js",
     "exports": [
       "export function loadEnv() {"
     ],
-    "routes": []
+    "routes": [],
+    "warnings": [
+      "⚠️ Uses fs sync write"
+    ]
+  },
+  {
+    "file": "server/utils/neo4j.js",
+    "exports": [
+      "export function getNeo4jDriver() {",
+      "export function getNeo4jSession() {"
+    ],
+    "routes": [],
+    "warnings": [
+      "⚠️ Possible hardcoded secret"
+    ]
   },
   {
     "file": "index.js",
     "exports": [],
-    "routes": []
+    "routes": [],
+    "warnings": []
   }
 ]
