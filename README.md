@@ -8,6 +8,7 @@
 [![ADD Manifesto](https://img.shields.io/badge/ADD-manifesto-purple?logo=neo4j)](./jod/ADD/ADD.md)
 [![Neo4j Guide](https://img.shields.io/badge/graph-connected-9cf?logo=neo4j)](./jod/ADD/Neo4j.md)
 
+[![MOD Support](https://img.shields.io/badge/MOD-0xA⚙️-purple)](#mod-0xa)
 > Exploring the edge of Node.js with **v22 (Jod)** — a minimal, awareness-driven, vulnerability-resistant API playground.
 
 ---
@@ -130,6 +131,47 @@ Ideal for inspecting architecture or enabling LLM-powered analysis.
 Guide available here → [`jod/ADD/Neo4j.md`](./jod/ADD/Neo4j.md)
 
 ---
+
+---
+
+## 🧠 Core Commands
+
+```bash
+npm run brain
+```
+Scans the backend (`server/`) and generates awareness files in `jod/memory/`.  
+Useful for debugging, onboarding, and feeding context to LLMs.
+
+```bash
+npm run llm
+```
+Creates an optimized `context.txt` for initializing an AI assistant or LLM session.  
+Contains structure summaries, development philosophy (ADD), and onboarding hints.
+
+```bash
+npm run interact
+```
+Triggers a humorous interaction with the default MOD personality (`MOD-0xA`).  
+Outputs a quote and ASCII art from the configured mod, ideal for terminal fun or LLM intros.
+
+---
+
+## 🎭 MOD-0xA
+
+MOD-0xA is a pluggable personality engine for injecting style, humor, and custom context into AI/dev interactions.
+
+### Default Setup:
+- Located at `jod/llm/mod/`
+- Files:
+  - `mod.js`: personality name, description, phrases
+  - `modAscii.js`: stylized ASCII art expressions
+
+### Custom Mods:
+You can fully customize your MOD persona by editing `mod.js` and `modAscii.js`.  
+Ideal for building your own LLM personas, debug cores, or motivational agents.
+
+> Inject sarcasm, wisdom, anime flair — whatever fits your dev soul.
+
 
 ## 🐺 Author
 
