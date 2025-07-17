@@ -92,7 +92,11 @@ Deployed with ❤️ on [Render](https://render.com/register) — a modern cloud
 
 ## 🧠 Self-awareness mode:
 
-Scans its own codebase with `node jod/brain.js` and builds a project memory map.
+Scans its own codebase with 
+```bash
+npm run brain
+``` 
+and builds a project memory map.
 
 This command creates:
 
