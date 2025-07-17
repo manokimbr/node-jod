@@ -21,5 +21,10 @@
       "export function loadEnv() {"
     ],
     "routes": []
+  },
+  {
+    "file": "index.js",
+    "exports": [],
+    "routes": []
   }
 ]
