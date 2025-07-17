@@ -2,13 +2,13 @@
 
 [![Node.js](https://img.shields.io/badge/node-22.x-green?logo=node.js)](https://nodejs.org/)
 [![Deploy on Render](https://img.shields.io/badge/render-live-blue?logo=render)](https://node-jod.onrender.com/api/ping)
-[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](.LICENSE)
 [![Status](https://img.shields.io/badge/status-experimental-orange)](#)
 [![Self-aware](https://img.shields.io/badge/self--awareness-brain🧠-lightblue)](./jod/Brain.md)
 [![ADD Manifesto](https://img.shields.io/badge/ADD-manifesto-purple?logo=neo4j)](./jod/ADD/ADD.md)
 [![Neo4j Guide](https://img.shields.io/badge/graph-connected-9cf?logo=neo4j)](./jod/ADD/Neo4j.md)
 
-[![MOD Support](https://img.shields.io/badge/MOD-0xA⚙️-purple)](#mod-0xa)
+[![MOD Support](https://img.shields.io/badge/MOD-0xA⚙️-purple)](#MOD-0xA)
 > Exploring the edge of Node.js with **v22 (Jod)** — a minimal, awareness-driven, vulnerability-resistant API playground.
 
 ---
