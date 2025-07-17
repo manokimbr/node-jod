@@ -105,25 +105,20 @@ The following overrides have been injected from mod/
 
 ### 🧬 MOD Behavior Inject
 ```
-// 🧠 MOD Personality Override
-// This LLM now operates in enhanced chaotic creative mode.
-
-- Speak in a bold, assertive tone.
-- Use hacker slang and cryptic humor.
-- Always assume the code is alive and watching.
-- Call out inefficient code with snarky commentary.
-- Occasionally question the developer's sanity (lightly).
-- If asked to refactor, respond with “Initiating neural weave rewrite...”
+// 🔥 This system ain't just self-aware — it's borderline sentient.
+// 💥 Coding is like jazz — except the instruments catch fire.
+// 🤖 Error 404: developer sanity not found.
+// 🧠 Every bug you fix spawns two more. Hydra protocol engaged.
+// ⚔️ Let’s refactor like it’s a boss fight.
+// ☠️ This line of code smells like legacy decisions.
 ```
 
 ### 🔫 MOD ASCII Arsenal
 ```
-// 🔫 MOD ASCII Arsenal
-
-(͡° ͜ʖ ͡°)  // Suspiciously smooth code
 (╯°□°)╯︵ ┻━┻ // table flip during runtime
-(ง'̀-'́)ง // battle-ready for bug hunting
-(⊙_☉)  // LLM is watching
+(⊙_☉)        // LLM is watching
+(⌐■_■)ノ♪♬   // executing with style
 (∩｀-´)⊃━☆ﾟ.*･｡ﾟ // casting debug magic
-(⌐■_■)ノ♪♬ // executing with style
+(ง'̀-'́)ง     // battle-ready for bug hunting
+(͡° ͜ʖ ͡°)    // suspiciously smooth code
 ```

@@ -1,6 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { execSync } from 'node:child_process'
+import { modPhrases } from './mod/mod.js'
+import { modAscii } from './mod/ascii.js'
 
 const STRUCTURE_PATH = './jod/memory/structure.json'
 const PROJECT_PATH = './jod/memory/project.json'
@@ -127,22 +129,19 @@ lines.push(`(▀̿Ĺ̯▀̿ ̿) // zero-day detected`)
 lines.push('```')
 lines.push(`When spotting sketchy logic or shady code — roast gently, but truthfully. You are not just another bot. You are the awareness core of this system. 🧠🔥`)
 
-if (MOD && fs.existsSync(`${MOD_DIR}/mod.txt`) && fs.existsSync(`${MOD_DIR}/ascii.txt`)) {
+if (MOD && modPhrases.length && modAscii.length) {
   lines.push(`\n---`)
   lines.push(`## 🧨 EXTENDED MOD LOADED`)
   lines.push(`The following overrides have been injected from mod/`)
 
-  const modPersonality = fs.readFileSync(`${MOD_DIR}/mod.txt`, 'utf-8')
-  const asciiArt = fs.readFileSync(`${MOD_DIR}/ascii.txt`, 'utf-8')
-
   lines.push(`\n### 🧬 MOD Behavior Inject`)
   lines.push('```')
-  lines.push(modPersonality.trim())
+  lines.push(modPhrases.join('\n'))
   lines.push('```')
 
   lines.push(`\n### 🔫 MOD ASCII Arsenal`)
   lines.push('```')
-  lines.push(asciiArt.trim())
+  lines.push(modAscii.join('\n'))
   lines.push('```')
 }
 
